@@ -1,3 +1,4 @@
+// src/core/presentation/i18n/locales/en.ts
 export default {
     common: {
       close: "Close",
@@ -24,6 +25,7 @@ export default {
           register: "Register",
           fullName: "Full Name",
           email: "Email",
+          emailOrUsername: "Email or Username",
           password: "Password",
           confirmPassword: "Confirm Password",
           forgotPassword: "Forgot Password?",
@@ -34,6 +36,14 @@ export default {
         passwordsDoNotMatch: "Passwords do not match",
         invalidCredentials: "Invalid email or password",
         emailAlreadyExists: "Email already exists",
+        // New validation error messages
+        emailRequired: "Email is required",
+        emailOrUsernameRequired: "Email or username is required",
+        invalidEmail: "Please enter a valid email address",
+        usernameTooShort: "Username must be at least 3 characters long",
+        invalidUsername: "Username can only contain letters, numbers, and . _ -",
+        passwordRequired: "Password is required",
+        passwordTooShort: "Password must be at least 6 characters long",
       },
     },
     post: {
