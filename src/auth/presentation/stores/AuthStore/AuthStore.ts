@@ -1,13 +1,10 @@
-// src/auth/presentation/stores/AuthStore/AuthStore.ts
-import { injectable } from "inversiland";
+import { injectable, inject } from "inversiland";
 import { makeAutoObservable } from "mobx";
 import AuthStoreState from "../../types/AuthStoreState";
 import UserEntity from "src/auth/domain/entities/UserEntity";
-
-export interface LoginCredentials {
-  email: string;
-  password: string;
-}
+import LoginUseCase from "src/auth/application/useCases/LoginUseCase";
+import LogoutUseCase from "src/auth/application/useCases/LogoutUseCase";
+import LoginPayload from "src/auth/application/types/LoginPayload";
 
 @injectable()
 export class AuthStore implements AuthStoreState {
@@ -16,7 +13,10 @@ export class AuthStore implements AuthStoreState {
   isAuthenticated = false;
   error: string | null = null;
 
-  constructor() {
+  constructor(
+    @inject(LoginUseCase) private loginUseCase: LoginUseCase,
+    @inject(LogoutUseCase) private logoutUseCase: LogoutUseCase
+  ) {
     makeAutoObservable(this);
   }
 
@@ -33,7 +33,7 @@ export class AuthStore implements AuthStoreState {
     this.error = error;
   }
 
-  validateCredentials(credentials: LoginCredentials): boolean {
+  validateCredentials(credentials: LoginPayload): boolean {
     // Server-side validation (in addition to client-side validation in the screen)
     const { email, password } = credentials;
     
@@ -74,7 +74,7 @@ export class AuthStore implements AuthStoreState {
     return true;
   }
 
-  async login(credentials: LoginCredentials) {
+  async login(credentials: LoginPayload) {
     try {
       this.setIsLoading(true);
       this.setError(null);
@@ -84,39 +84,8 @@ export class AuthStore implements AuthStoreState {
         return false;
       }
       
-      // Mock authentication - in a real app, this would be an API call
-      // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // For demo purposes, we'll just accept valid credentials
-      // and create a mock user
-      
-      // Optional: Add mock invalid credentials check
-      if (credentials.email === "invalid@example.com" || credentials.email === "invalid") {
-        this.setError('Invalid credentials');
-        return false;
-      }
-      
-      // Generate a display name based on the login method
-      let displayName = "Demo User";
-      let userEmail = credentials.email;
-      
-      // If it's a username, create a fake email
-      if (!credentials.email.includes('@')) {
-        userEmail = `${credentials.email}@example.com`;
-        displayName = credentials.email.charAt(0).toUpperCase() + credentials.email.slice(1);
-      }
-      
-      const mockUser: UserEntity = {
-        id: "1",
-        name: displayName,
-        email: userEmail,
-        avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(
-          displayName
-        )}&background=random`
-      };
-      
-      this.setUser(mockUser);
+      const user = await this.loginUseCase.execute(credentials);
+      this.setUser(user);
       return true;
     } catch (error) {
       this.setError(error instanceof Error ? error.message : "Login failed");
@@ -126,8 +95,16 @@ export class AuthStore implements AuthStoreState {
     }
   }
 
-  logout() {
-    this.setUser(null);
-    this.setError(null);
+  async logout() {
+    try {
+      this.setIsLoading(true);
+      await this.logoutUseCase.execute();
+      this.setUser(null);
+      this.setError(null);
+    } catch (error) {
+      this.setError(error instanceof Error ? error.message : "Logout failed");
+    } finally {
+      this.setIsLoading(false);
+    }
   }
 }
