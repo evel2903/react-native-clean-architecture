@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Card, Text } from "react-native-paper";
 import PostEntity from "src/post/domain/entities/PostEntity";
 
 interface PostItemProps {
@@ -14,29 +14,16 @@ const PostItem = ({ post }: PostItemProps) => {
   };
 
   return (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.container}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.body}>{body}</Text>
-      </View>
-    </TouchableOpacity>
+    <Card 
+      style={{ margin: 8 }} 
+      onPress={onPress}
+    >
+      <Card.Content>
+        <Text variant="titleMedium">{title}</Text>
+        <Text variant="bodyMedium" style={{ marginTop: 8 }}>{body}</Text>
+      </Card.Content>
+    </Card>
   );
 };
 
 export default PostItem;
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: "bold",
-    marginBottom: 8,
-  },
-  body: {
-    fontSize: 14,
-  },
-});
