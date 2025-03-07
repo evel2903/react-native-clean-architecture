@@ -12,7 +12,9 @@ const linking: LinkingOptions<RootStackParamList> = {
   prefixes: [Linking.createURL("/")],
   config: {
     screens: {
-      Posts: "",
+      Auth: "auth",
+      Home: "home",
+      Posts: "posts",
       Post: "post/:id",
       NotFound: "*",
     },

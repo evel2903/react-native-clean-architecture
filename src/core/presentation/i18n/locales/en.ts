@@ -14,6 +14,20 @@ export default {
         contextNotProvided: "{{contextName}} is not provided.",
       },
     },
+    home: {
+      title: "Home",
+      welcome: "Welcome, {{name}}!",
+      welcomeDescription: "What would you like to do today?",
+      menu: "Menu",
+      menuItems: {
+        posts: "Posts",
+        postsDescription: "View and manage your posts",
+        profile: "Profile",
+        profileDescription: "View and edit your profile",
+        settings: "Settings",
+        settingsDescription: "Configure app settings",
+      },
+    },
     auth: {
       screens: {
         Auth: {

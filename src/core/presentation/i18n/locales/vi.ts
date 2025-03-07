@@ -14,6 +14,20 @@ export default {
         contextNotProvided: "{{contextName}} không được cung cấp.",
       },
     },
+    home: {
+      title: "Trang chủ",
+      welcome: "Xin chào, {{name}}!",
+      welcomeDescription: "Bạn muốn làm gì hôm nay?",
+      menu: "Menu",
+      menuItems: {
+        posts: "Bài viết",
+        postsDescription: "Xem và quản lý bài viết của bạn",
+        profile: "Hồ sơ",
+        profileDescription: "Xem và chỉnh sửa hồ sơ của bạn",
+        settings: "Cài đặt",
+        settingsDescription: "Cấu hình ứng dụng",
+      },
+    },
     auth: {
       screens: {
         Auth: {

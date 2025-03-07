@@ -11,31 +11,28 @@ import { GetPostsStoreProvider } from "../stores/GetPostsStore/GetPostsStoreProv
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "src/core/presentation/theme/ThemeProvider";
 import { useNavigation } from "@react-navigation/native";
-import { useAuthStore } from "src/auth/presentation/stores/AuthStore/useAuthStore";
-import { AuthStoreProvider } from "src/auth/presentation/stores/AuthStore/AuthStoreProvider";
+import { RootScreenNavigationProp } from "src/core/presentation/navigation/types";
 
 const PostsScreen = observer(() => {
   const i18n = useI18n();
-  const navigation = useNavigation();
+  const navigation = useNavigation<RootScreenNavigationProp<'Posts'>>();
   const getPostsStore = useGetPostsStore();
-  const authStore = useAuthStore();
   const { isLoading, results } = getPostsStore;
-  const { theme } = useTheme();
+  const theme = useTheme();
 
   useEffect(() => {
     getPostsStore.getPosts();
   }, [getPostsStore]);
 
-  const handleLogout = () => {
-    authStore.logout();
-    navigation.navigate('Auth');
+  const handleGoBack = () => {
+    navigation.navigate('Home');
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.background }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.theme.colors.background }}>
       <Appbar.Header>
+        <Appbar.BackAction onPress={handleGoBack} />
         <Appbar.Content title="Posts" />
-        <Appbar.Action icon="logout" onPress={handleLogout} />
       </Appbar.Header>
       
       <View style={{ flex: 1 }}>
@@ -56,4 +53,4 @@ const PostsScreen = observer(() => {
   );
 });
 
-export default withProviders(GetPostsStoreProvider, AuthStoreProvider)(PostsScreen);
+export default withProviders(GetPostsStoreProvider)(PostsScreen);

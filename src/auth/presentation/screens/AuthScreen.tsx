@@ -14,7 +14,7 @@ import { withProviders } from 'src/core/presentation/utils/withProviders';
 import { AuthStoreProvider } from '../stores/AuthStore/AuthStoreProvider';
 
 const AuthScreen = observer(() => {
-    const { theme } = useTheme();
+    const theme = useTheme();
     const i18n = useI18n();
     const navigation = useNavigation<RootScreenNavigationProp<'Auth'>>();
     const authStore = useAuthStore();
@@ -87,7 +87,7 @@ const AuthScreen = observer(() => {
 
         const success = await authStore.login({ email, password });
         if (success) {
-            navigation.navigate('Posts');
+            navigation.navigate('Home');
         }
     };
 
@@ -102,8 +102,8 @@ const AuthScreen = observer(() => {
     };
 
     return (
-        <SafeAreaView style={[styles.container, { backgroundColor: theme.colors.background }]}>
-            <StatusBar style={theme.dark ? 'light' : 'dark'} />
+        <SafeAreaView style={[styles.container, { backgroundColor: theme.theme.colors.background }]}>
+            <StatusBar style={theme.isDarkTheme ? 'light' : 'dark'} />
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 style={styles.keyboardAvoidView}
