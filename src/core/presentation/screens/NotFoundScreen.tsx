@@ -1,10 +1,10 @@
 import { View } from "react-native";
 import { Button, Text } from "react-native-paper";
-import { RootStackScreenProps } from "../navigation/types";
-import { useI18n } from "../hooks/useI18n";
+import { RootStackScreenProps } from "../Navigation/Types/Index";
+import { useI18n } from "../Hooks/UseI18n";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import { useTheme } from "../theme/ThemeProvider";
+import { useTheme } from "../Theme/ThemeProvider";
 
 export default function NotFoundScreen({
   navigation,

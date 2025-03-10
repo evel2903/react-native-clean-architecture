@@ -1,9 +1,9 @@
 import { getModuleContainer, module } from "inversiland";
-import { AuthStore } from "./presentation/stores/AuthStore/AuthStore";
-import { IAuthRepositoryToken } from "./domain/specifications/IAuthRepository";
-import AuthRepository from "./infrastructure/implementations/AuthRepository";
-import LoginUseCase from "./application/useCases/LoginUseCase";
-import LogoutUseCase from "./application/useCases/LogoutUseCase";
+import { AuthStore } from "./Presentation/Stores/AuthStore/AuthStore";
+import { IAuthRepositoryToken } from "./Domain/Specifications/IAuthRepository";
+import AuthRepository from "./Infrastructure/Implementations/AuthRepository";
+import LoginUseCase from "./Application/UseCases/LoginUseCase";
+import LogoutUseCase from "./Application/UseCases/LogoutUseCase";
 
 @module({
   providers: [

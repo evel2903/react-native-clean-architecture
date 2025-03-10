@@ -1,11 +1,11 @@
 import { injectable, inject } from "inversiland";
 import { makeAutoObservable } from "mobx";
-import AuthStoreState from "../../types/AuthStoreState";
-import UserEntity from "src/auth/domain/entities/UserEntity";
-import LoginUseCase from "src/auth/application/useCases/LoginUseCase";
-import LogoutUseCase from "src/auth/application/useCases/LogoutUseCase";
-import LoginPayload from "src/auth/application/types/LoginPayload";
-import IHttpClient, { IHttpClientToken } from "src/core/domain/specifications/IHttpClient";
+import AuthStoreState from "../../Types/AuthStoreState";
+import UserEntity from "@/src/Auth/Domain/Entities/UserEntity";
+import LoginUseCase from "@/src/Auth/Application/UseCases/LoginUseCase";
+import LogoutUseCase from "@/src/Auth/Application/UseCases/LogoutUseCase";
+import LoginPayload from "@/src/Auth/Application/Types/LoginPayload";
+import IHttpClient, { IHttpClientToken } from "@/src/Core/Domain/Specifications/IHttpClient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ACCESS_TOKEN_KEY = 'accessToken';

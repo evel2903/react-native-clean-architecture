@@ -1,4 +1,4 @@
-import PayloadDto from "src/core/infrastructure/models/PayloadDto";
+import PayloadDto from "@/src/Core/Infrastructure/Models/PayloadDto";
 import GetPostsPayload from "src/post/application/types/GetPostsPayload";
 import { Expose } from "class-transformer";
 

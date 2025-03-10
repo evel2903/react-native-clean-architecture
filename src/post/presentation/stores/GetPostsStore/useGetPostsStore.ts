@@ -1,4 +1,4 @@
-import { useContextStore } from "src/core/presentation/hooks/useContextStore";
+import { useContextStore } from "@/src/Core/Presentation/Hooks/UseContextStore";
 import { GetPostsStore } from "./GetPostsStore";
 import { GetPostsStoreContext } from "./GetPostsStoreContext";
 

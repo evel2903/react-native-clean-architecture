@@ -1,5 +1,5 @@
-import Navigation from "./navigation";
-import { ThemeProvider } from "./theme/ThemeProvider";
+import Navigation from "./Navigation/Index";
+import { ThemeProvider } from "./Theme/ThemeProvider";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function App() {

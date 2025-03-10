@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { inject, injectable } from "inversiland";
-import IHttpClient from "../../domain/specifications/IHttpClient";
-import Env, { EnvToken } from "src/core/domain/entities/Env";
+import IHttpClient from "../../Domain/Specifications/IHttpClient";
+import Env, { EnvToken } from "@/src/Core/Domain/Entities/Env";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ACCESS_TOKEN_KEY = 'accessToken';

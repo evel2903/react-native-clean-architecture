@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { Button, Text, TextInput, Surface, Snackbar, HelperText } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTheme } from 'src/core/presentation/theme/ThemeProvider';
-import { useI18n } from 'src/core/presentation/hooks/useI18n';
+import { useTheme } from '@/src/Core/Presentation/Theme/ThemeProvider';
+import { useI18n } from '@/src/Core/Presentation/Hooks/UseI18n';
 import { StatusBar } from 'expo-status-bar';
 import { useNavigation } from '@react-navigation/native';
-import { RootScreenNavigationProp } from 'src/core/presentation/navigation/types';
+import { RootScreenNavigationProp } from '@/src/Core/Presentation/Navigation/Types/Index';
 import { observer } from 'mobx-react';
-import { useAuthStore } from '../stores/AuthStore/useAuthStore';
-import { withProviders } from 'src/core/presentation/utils/withProviders';
-import { AuthStoreProvider } from '../stores/AuthStore/AuthStoreProvider';
+import { useAuthStore } from '../Stores/AuthStore/UseAuthStore';
+import { withProviders } from '@/src/Core/Presentation/Utils/WithProviders';
+import { AuthStoreProvider } from '../Stores/AuthStore/AuthStoreProvider';
 
 const AuthScreen = observer(() => {
     const theme = useTheme();

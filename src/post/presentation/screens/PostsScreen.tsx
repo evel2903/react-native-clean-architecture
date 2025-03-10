@@ -2,16 +2,16 @@ import { useEffect } from "react";
 import { FlatList, View } from "react-native";
 import { ActivityIndicator, Appbar, Text } from "react-native-paper";
 
-import { useI18n } from "src/core/presentation/hooks/useI18n";
+import { useI18n } from "@/src/Core/Presentation/Hooks/UseI18n";
 import PostItem from "../components/PostItem";
 import { observer } from "mobx-react";
 import { useGetPostsStore } from "../stores/GetPostsStore/useGetPostsStore";
-import { withProviders } from "src/core/presentation/utils/withProviders";
+import { withProviders } from "@/src/Core/Presentation/Utils/WithProviders";
 import { GetPostsStoreProvider } from "../stores/GetPostsStore/GetPostsStoreProvider";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useTheme } from "src/core/presentation/theme/ThemeProvider";
+import { useTheme } from "@/src/Core/Presentation/Theme/ThemeProvider";
 import { useNavigation } from "@react-navigation/native";
-import { RootScreenNavigationProp } from "src/core/presentation/navigation/types";
+import { RootScreenNavigationProp } from "@/src/Core/Presentation/Navigation/Types/Index";
 import { StatusBar } from "expo-status-bar";
 
 const PostsScreen = observer(() => {

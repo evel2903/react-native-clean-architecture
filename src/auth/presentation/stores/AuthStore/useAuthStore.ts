@@ -1,4 +1,4 @@
-import { useContextStore } from "src/core/presentation/hooks/useContextStore";
+import { useContextStore } from "@/src/Core/Presentation/Hooks/UseContextStore";
 import { AuthStore } from "./AuthStore";
 import { AuthStoreContext } from "./AuthStoreContext";
 

@@ -1,5 +1,5 @@
 import { Expose } from "class-transformer";
-import ResponseDto from "src/core/infrastructure/models/ResponseDto";
+import ResponseDto from "@/src/Core/Infrastructure/Models/ResponseDto";
 import PostEntity from "src/post/domain/entities/PostEntity";
 
 export default class PostDto extends ResponseDto<PostEntity> {

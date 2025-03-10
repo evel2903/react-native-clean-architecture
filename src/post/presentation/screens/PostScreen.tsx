@@ -2,15 +2,15 @@ import { useEffect } from "react";
 import { View } from "react-native";
 import { ActivityIndicator, Appbar, Card, Text } from "react-native-paper";
 
-import { RootStackScreenProps } from "src/core/presentation/navigation/types";
-import { useI18n } from "src/core/presentation/hooks/useI18n";
-import { withProviders } from "src/core/presentation/utils/withProviders";
+import { RootStackScreenProps } from "@/src/Core/Presentation/Navigation/Types/Index";
+import { useI18n } from "@/src/Core/Presentation/Hooks/UseI18n";
+import { withProviders } from "@/src/Core/Presentation/Utils/WithProviders";
 import { FindPostStoreProvider } from "../stores/FindPostStore/FindPostStoreProvider";
 import { useFindPostStore } from "../stores/FindPostStore/useFindPostStore";
 import { observer } from "mobx-react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import { useTheme } from "src/core/presentation/theme/ThemeProvider";
+import { useTheme } from "@/src/Core/Presentation/Theme/ThemeProvider";
 
 const PostScreen = observer(({ route, navigation }: RootStackScreenProps<"Post">) => {
   const { id } = route.params;

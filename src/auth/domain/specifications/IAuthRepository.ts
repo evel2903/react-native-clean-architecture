@@ -1,5 +1,5 @@
-import UserEntity from "../entities/UserEntity";
-import LoginPayload from "../../application/types/LoginPayload";
+import UserEntity from "../Entities/UserEntity";
+import LoginPayload from "../../Application/Types/LoginPayload";
 
 export const IAuthRepositoryToken = Symbol("IAuthRepository");
 

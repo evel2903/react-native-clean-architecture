@@ -1,6 +1,6 @@
 import { Expose } from "class-transformer";
-import ResponseDto from "src/core/infrastructure/models/ResponseDto";
-import UserEntity from "src/auth/domain/entities/UserEntity";
+import ResponseDto from "@/src/Core/Infrastructure/Models/ResponseDto";
+import UserEntity from "@/src/Auth/Domain/Entities/UserEntity";
 
 export default class UserDto extends ResponseDto<UserEntity> {
   @Expose()

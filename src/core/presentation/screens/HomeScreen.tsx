@@ -3,14 +3,14 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import { Card, Text, Appbar, Avatar, Title, Paragraph } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { RootScreenNavigationProp } from '../navigation/types';
-import { useI18n } from '../hooks/useI18n';
+import { RootScreenNavigationProp } from '../Navigation/Types/Index';
+import { useI18n } from '../Hooks/UseI18n';
 import { StatusBar } from 'expo-status-bar';
 import { observer } from 'mobx-react';
-import { useAuthStore } from 'src/auth/presentation/stores/AuthStore/useAuthStore';
-import { withProviders } from '../utils/withProviders';
-import { AuthStoreProvider } from 'src/auth/presentation/stores/AuthStore/AuthStoreProvider';
-import { useTheme } from "../theme/ThemeProvider";
+import { useAuthStore } from '@/src/Auth/Presentation/Stores/AuthStore/UseAuthStore';
+import { withProviders } from '../Utils/WithProviders';
+import { AuthStoreProvider } from '@/src/Auth/Presentation/Stores/AuthStore/AuthStoreProvider';
+import { useTheme } from "../Theme/ThemeProvider";
 
 const HomeScreen = observer(() => {
     const navigation = useNavigation<RootScreenNavigationProp<'Home'>>();
@@ -46,7 +46,7 @@ const HomeScreen = observer(() => {
             title: i18n.t('home.menuItems.inventory'),
             icon: 'arrow-collapse-all',
             description: i18n.t('home.menuItems.inventoryDescription'),
-            onPress: () => navigation.navigate('NotFound')
+            onPress: () => navigation.navigate('Inventory')
         },
     ];
 

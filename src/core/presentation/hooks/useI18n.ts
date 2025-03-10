@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { coreModuleContainer } from "src/core/CoreModule";
-import I18n from "../i18n";
+import { coreModuleContainer } from "@/src/Core/CoreModule";
+import I18n from "../I18n/Index";
 
 export const useI18n = () => {
   const i18n = useMemo(() => {

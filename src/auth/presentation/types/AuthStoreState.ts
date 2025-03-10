@@ -1,4 +1,4 @@
-import UserEntity from "src/auth/domain/entities/UserEntity";
+import UserEntity from "@/src/Auth/Domain/Entities/UserEntity";
 
 export default interface AuthStoreState {
   isLoading: boolean;

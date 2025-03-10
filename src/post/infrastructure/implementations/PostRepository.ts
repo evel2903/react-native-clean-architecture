@@ -6,7 +6,7 @@ import PostDto from "../models/PostDto";
 import { plainToInstance } from "class-transformer";
 import IHttpClient, {
   IHttpClientToken,
-} from "src/core/domain/specifications/IHttpClient";
+} from "@/src/Core/Domain/Specifications/IHttpClient";
 
 @injectable()
 class PostRepository implements IPostRepository {

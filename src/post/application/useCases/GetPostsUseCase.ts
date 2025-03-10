@@ -4,7 +4,7 @@ import {
 } from "src/post/domain/specifications/IPostRepository";
 import GetPostsPayload from "src/post/application/types/GetPostsPayload";
 import { injectable, inject } from "inversiland";
-import { UseCase } from "src/core/application/UseCase";
+import { UseCase } from "@/src/Core/Application/UseCase";
 import GetPostsResponse from "../types/GetPostsResponse";
 
 @injectable()

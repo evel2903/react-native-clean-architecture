@@ -1,6 +1,6 @@
 import { Expose, plainToInstance } from "class-transformer";
-import PayloadDto from "src/core/infrastructure/models/PayloadDto";
-import LoginPayload from "../../application/types/LoginPayload";
+import PayloadDto from "@/src/Core/Infrastructure/Models/PayloadDto";
+import LoginPayload from "../../Application/Types/LoginPayload";
 
 export default class LoginDto extends PayloadDto<LoginPayload> {
   @Expose()

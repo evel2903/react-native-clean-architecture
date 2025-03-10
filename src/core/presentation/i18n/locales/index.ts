@@ -1,5 +1,5 @@
-import en from "./en";
-import vi from "./vi";
+import en from "./En";
+import vi from "./Vi";
 
 const locales = {
   en,

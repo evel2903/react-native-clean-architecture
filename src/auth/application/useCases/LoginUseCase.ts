@@ -2,10 +2,10 @@ import { injectable, inject } from "inversiland";
 import {
   IAuthRepository,
   IAuthRepositoryToken,
-} from "../../domain/specifications/IAuthRepository";
-import LoginPayload from "../types/LoginPayload";
-import { UseCase } from "src/core/application/UseCase";
-import UserEntity from "src/auth/domain/entities/UserEntity";
+} from "../../Domain/Specifications/IAuthRepository";
+import LoginPayload from "../Types/LoginPayload";
+import { UseCase } from "@/src/Core/Application/UseCase";
+import UserEntity from "@/src/Auth/Domain/Entities/UserEntity";
 
 @injectable()
 export default class LoginUseCase implements UseCase<LoginPayload, Promise<UserEntity>> {

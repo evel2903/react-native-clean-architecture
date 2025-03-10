@@ -1,5 +1,5 @@
 import { Context, useContext } from "react";
-import { useI18n } from "./useI18n";
+import { useI18n } from "./UseI18n";
 
 export const useContextStore = <T>(
   Context: Context<T>

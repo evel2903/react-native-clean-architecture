@@ -1,6 +1,6 @@
 import * as Localization from "expo-localization";
 import { I18n as I18nJs, Scope, TranslateOptions } from "i18n-js";
-import locales from "./locales";
+import locales from "./Locales/Index";
 import { injectable } from "inversiland";
 
 @injectable()

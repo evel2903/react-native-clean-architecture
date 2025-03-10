@@ -1,9 +1,9 @@
 import { NavigationContainer } from "@react-navigation/native";
 import * as React from "react";
 import { observer } from 'mobx-react';
-import { useAuthStore } from "src/auth/presentation/stores/AuthStore/useAuthStore";
-import { AuthStoreProvider } from "src/auth/presentation/stores/AuthStore/AuthStoreProvider";
-import { withProviders } from "../utils/withProviders";
+import { useAuthStore } from "@/src/Auth/Presentation/Stores/AuthStore/UseAuthStore";
+import { AuthStoreProvider } from "@/src/Auth/Presentation/Stores/AuthStore/AuthStoreProvider";
+import { withProviders } from "../Utils/WithProviders";
 
 import LinkingConfiguration from "./LinkingConfiguration";
 import RootNavigator from "./RootNavigator";

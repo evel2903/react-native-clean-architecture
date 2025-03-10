@@ -1,8 +1,8 @@
 import { getModuleContainer, module } from "inversiland";
-import I18n from "./presentation/i18n";
-import HttpClient from "./infrastructure/implementations/HttpClient";
-import { IHttpClientToken } from "./domain/specifications/IHttpClient";
-import Env, { EnvToken } from "./domain/entities/Env";
+import I18n from "./Presentation/I18n/Index";
+import HttpClient from "./Infrastructure/Implementations/HttpClient";
+import { IHttpClientToken } from "./Domain/Specifications/IHttpClient";
+import Env, { EnvToken } from "./Domain/Entities/Env";
 
 @module({
   providers: [

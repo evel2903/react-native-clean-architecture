@@ -1,15 +1,16 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RootStackParamList } from "./types";
+import { RootStackParamList } from "./Types/Index";
 import PostScreen from "src/post/presentation/screens/PostScreen";
-import NotFoundScreen from "../screens/NotFoundScreen";
+import NotFoundScreen from "../Screens/NotFoundScreen";
 import PostsScreen from "src/post/presentation/screens/PostsScreen";
-import AuthScreen from "src/auth/presentation/screens/AuthScreen";
-import HomeScreen from "../screens/HomeScreen";
-import { useTheme } from "../theme/ThemeProvider";
+import AuthScreen from "@/src/Auth/Presentation/Screens/AuthScreen";
+import HomeScreen from "../Screens/HomeScreen";
+import InventoryScreen from "@/src/Inventory/Presentation/Screens/InventoryScreen";
+import { useTheme } from "../Theme/ThemeProvider";
 import { observer } from 'mobx-react';
-import { useAuthStore } from "src/auth/presentation/stores/AuthStore/useAuthStore";
-import { withProviders } from "../utils/withProviders";
-import { AuthStoreProvider } from "src/auth/presentation/stores/AuthStore/AuthStoreProvider";
+import { useAuthStore } from "@/src/Auth/Presentation/Stores/AuthStore/UseAuthStore";
+import { withProviders } from "../Utils/WithProviders";
+import { AuthStoreProvider } from "@/src/Auth/Presentation/Stores/AuthStore/AuthStoreProvider";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -40,6 +41,7 @@ const RootNavigator = observer(() => {
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Posts" component={PostsScreen} />
       <Stack.Screen name="Post" component={PostScreen} />
+      <Stack.Screen name="Inventory" component={InventoryScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} />
     </Stack.Navigator>
   );

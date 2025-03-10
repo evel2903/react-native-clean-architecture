@@ -1,11 +1,11 @@
 import { injectable, inject } from "inversiland";
-import { IAuthRepository } from "../../domain/specifications/IAuthRepository";
-import LoginPayload from "../../application/types/LoginPayload";
-import UserEntity from "../../domain/entities/UserEntity";
-import IHttpClient, { IHttpClientToken } from "src/core/domain/specifications/IHttpClient";
-import LoginDto from "../models/LoginDto";
+import { IAuthRepository } from "../../Domain/Specifications/IAuthRepository";
+import LoginPayload from "../../Application/Types/LoginPayload";
+import UserEntity from "../../Domain/Entities/UserEntity";
+import IHttpClient, { IHttpClientToken } from "@/src/Core/Domain/Specifications/IHttpClient";
+import LoginDto from "../Models/LoginDto";
 import { plainToInstance } from "class-transformer";
-import UserDto from "../models/UserDto";
+import UserDto from "../Models/UserDto";
 
 @injectable()
 class AuthRepository implements IAuthRepository {
