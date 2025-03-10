@@ -27,6 +27,12 @@ export default {
         profileDescription: "View and edit your profile",
         settings: "Settings",
         settingsDescription: "Configure app settings",
+        stockIn: "Stock In",
+        stockInDescription: "Stock In Feature",
+        stockOut: "Stock Out",
+        stockOutDescription: "Stock Out Feature",
+        inventory: "Inventory",
+        inventoryDescription: "Inventory Feature",
       },
     },
     auth: {
