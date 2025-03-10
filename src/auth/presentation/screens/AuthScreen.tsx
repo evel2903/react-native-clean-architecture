@@ -1,4 +1,3 @@
-// src/auth/presentation/screens/AuthScreen.tsx
 import React, { useState } from 'react';
 import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { Button, Text, TextInput, Surface, Snackbar, HelperText } from 'react-native-paper';
@@ -102,109 +101,106 @@ const AuthScreen = observer(() => {
     };
 
     return (
-        <SafeAreaView style={[styles.container, { backgroundColor: theme.theme.colors.background }]}>
+        <View style={{ flex: 1, backgroundColor: theme.theme.colors.background }}>
             <StatusBar style={theme.isDarkTheme ? 'light' : 'dark'} />
-            <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={styles.keyboardAvoidView}
-            >
-                <ScrollView contentContainerStyle={styles.scrollContent}>
-                    <View style={styles.header}>
-                        <Text variant="headlineMedium" style={styles.title}>
-                            {i18n.t('auth.screens.Auth.welcomeBack')}
-                        </Text>
-                        <Text variant="bodyMedium" style={styles.subtitle}>
-                            {i18n.t('auth.screens.Auth.signInContinue')}
-                        </Text>
-                    </View>
-
-                    <Surface style={styles.authForm} elevation={1}>
-                        <View style={styles.formContent}>
-                            <TextInput
-                                label={i18n.t('auth.screens.Auth.emailOrUsername')}
-                                value={email}
-                                onChangeText={handleEmailChange}
-                                mode="outlined"
-                                keyboardType={email.includes('@') ? "email-address" : "default"}
-                                autoCapitalize="none"
-                                left={<TextInput.Icon icon="account" />}
-                                style={styles.input}
-                                error={!!emailError}
-                                onBlur={() => validateEmailOrUsername(email)}
-                            />
-                            {emailError && (
-                                <HelperText type="error" visible={!!emailError}>
-                                    {emailError}
-                                </HelperText>
-                            )}
-
-                            <TextInput
-                                label={i18n.t('auth.screens.Auth.password')}
-                                value={password}
-                                onChangeText={handlePasswordChange}
-                                mode="outlined"
-                                secureTextEntry={!passwordVisible}
-                                left={<TextInput.Icon icon="lock" />}
-                                right={
-                                    <TextInput.Icon
-                                        icon={passwordVisible ? 'eye-off' : 'eye'}
-                                        onPress={togglePasswordVisibility}
-                                    />
-                                }
-                                style={styles.input}
-                                error={!!passwordError}
-                                onBlur={() => validatePassword(password)}
-                            />
-                            {passwordError && (
-                                <HelperText type="error" visible={!!passwordError}>
-                                    {passwordError}
-                                </HelperText>
-                            )}
-
-                            <Button
-                                mode="text"
-                                compact
-                                // onPress={() => {}}
-                                style={styles.forgotPassword}
-                            >
-                                {i18n.t('auth.screens.Auth.forgotPassword')}
-                            </Button>
-
-                            <Button
-                                mode="contained"
-                                onPress={handleLogin}
-                                style={styles.submitButton}
-                                loading={authStore.isLoading}
-                                disabled={authStore.isLoading}
-                            >
-                                {i18n.t('auth.screens.Auth.login')}
-                            </Button>
+            <SafeAreaView style={{ flex: 1 }} edges={['right', 'left', 'bottom']}>
+                <KeyboardAvoidingView
+                    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                    style={styles.keyboardAvoidView}
+                >
+                    <ScrollView contentContainerStyle={styles.scrollContent}>
+                        <View style={styles.header}>
+                            <Text variant="headlineMedium" style={styles.title}>
+                                {i18n.t('auth.screens.Auth.welcomeBack')}
+                            </Text>
+                            <Text variant="bodyMedium" style={styles.subtitle}>
+                                {i18n.t('auth.screens.Auth.signInContinue')}
+                            </Text>
                         </View>
-                    </Surface>
-                </ScrollView>
-            </KeyboardAvoidingView>
 
-            <Snackbar
-                visible={!!authStore.error}
-                onDismiss={() => authStore.setError(null)}
-                duration={3000}
-                action={{
-                    label: i18n.t('common.close'),
-                    onPress: () => authStore.setError(null),
-                }}
-            >
-                {authStore.error}
-            </Snackbar>
-        </SafeAreaView>
+                        <Surface style={styles.authForm} elevation={1}>
+                            <View style={styles.formContent}>
+                                <TextInput
+                                    label={i18n.t('auth.screens.Auth.emailOrUsername')}
+                                    value={email}
+                                    onChangeText={handleEmailChange}
+                                    mode="outlined"
+                                    keyboardType={email.includes('@') ? "email-address" : "default"}
+                                    autoCapitalize="none"
+                                    left={<TextInput.Icon icon="account" />}
+                                    style={styles.input}
+                                    error={!!emailError}
+                                    onBlur={() => validateEmailOrUsername(email)}
+                                />
+                                {emailError && (
+                                    <HelperText type="error" visible={!!emailError}>
+                                        {emailError}
+                                    </HelperText>
+                                )}
+
+                                <TextInput
+                                    label={i18n.t('auth.screens.Auth.password')}
+                                    value={password}
+                                    onChangeText={handlePasswordChange}
+                                    mode="outlined"
+                                    secureTextEntry={!passwordVisible}
+                                    left={<TextInput.Icon icon="lock" />}
+                                    right={
+                                        <TextInput.Icon
+                                            icon={passwordVisible ? 'eye-off' : 'eye'}
+                                            onPress={togglePasswordVisibility}
+                                        />
+                                    }
+                                    style={styles.input}
+                                    error={!!passwordError}
+                                    onBlur={() => validatePassword(password)}
+                                />
+                                {passwordError && (
+                                    <HelperText type="error" visible={!!passwordError}>
+                                        {passwordError}
+                                    </HelperText>
+                                )}
+
+                                <Button
+                                    mode="text"
+                                    compact
+                                    // onPress={() => {}}
+                                    style={styles.forgotPassword}
+                                >
+                                    {i18n.t('auth.screens.Auth.forgotPassword')}
+                                </Button>
+
+                                <Button
+                                    mode="contained"
+                                    onPress={handleLogin}
+                                    style={styles.submitButton}
+                                    loading={authStore.isLoading}
+                                    disabled={authStore.isLoading}
+                                >
+                                    {i18n.t('auth.screens.Auth.login')}
+                                </Button>
+                            </View>
+                        </Surface>
+                    </ScrollView>
+                </KeyboardAvoidingView>
+
+                <Snackbar
+                    visible={!!authStore.error}
+                    onDismiss={() => authStore.setError(null)}
+                    duration={3000}
+                    action={{
+                        label: i18n.t('common.close'),
+                        onPress: () => authStore.setError(null),
+                    }}
+                >
+                    {authStore.error}
+                </Snackbar>
+            </SafeAreaView>
+        </View>
     );
 });
 
-export default withProviders(AuthStoreProvider)(AuthScreen);
-
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
     keyboardAvoidView: {
         flex: 1,
     },
@@ -248,3 +244,5 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
 });
+
+export default withProviders(AuthStoreProvider)(AuthScreen);

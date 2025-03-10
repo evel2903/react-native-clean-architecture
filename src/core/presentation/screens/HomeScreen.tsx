@@ -34,76 +34,75 @@ const HomeScreen = observer(() => {
       title: i18n.t('home.menuItems.profile'),
       icon: 'account',
       description: i18n.t('home.menuItems.profileDescription'),
-      onPress: () => console.log('Navigate to profile')
+      onPress: () => navigation.navigate('NotFound')
     },
     {
       title: i18n.t('home.menuItems.settings'),
       icon: 'cog',
       description: i18n.t('home.menuItems.settingsDescription'),
-      onPress: () => console.log('Navigate to settings')
+      onPress: () => navigation.navigate('NotFound')
     }
   ];
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: theme.theme.colors.background }]}>
+    <View style={{ flex: 1, backgroundColor: theme.theme.colors.background }}>
       <StatusBar style={theme.isDarkTheme ? 'light' : 'dark'} />
-      <Appbar.Header>
-        <Appbar.Content title={i18n.t('home.title')} />
-        <Appbar.Action icon="logout" onPress={handleLogout} />
-      </Appbar.Header>
+      <SafeAreaView style={{ flex: 1 }} edges={['right', 'left']}>
+        <Appbar.Header>
+          <Appbar.Content title={i18n.t('home.title')} />
+          <Appbar.Action icon="logout" onPress={handleLogout} />
+        </Appbar.Header>
 
-      <ScrollView contentContainerStyle={styles.scrollContent}>
-        {/* User welcome section */}
-        <Card style={styles.welcomeCard}>
-          <Card.Content style={styles.welcomeCardContent}>
-            <View style={styles.welcomeTextContainer}>
-              {authStore.user?.name ? (
-                <Title>{i18n.t('home.welcome', { name: authStore.user.name })}</Title>
-              ) : (
-                <Title>{i18n.t('home.welcomeDefault')}</Title>
+        <ScrollView contentContainerStyle={styles.scrollContent}>
+          {/* User welcome section */}
+          <Card style={styles.welcomeCard}>
+            <Card.Content style={styles.welcomeCardContent}>
+              <View style={styles.welcomeTextContainer}>
+                {authStore.user?.name ? (
+                  <Title>{i18n.t('home.welcome', { name: authStore.user.name })}</Title>
+                ) : (
+                  <Title>{i18n.t('home.welcomeDefault')}</Title>
+                )}
+                <Paragraph>{i18n.t('home.welcomeDescription')}</Paragraph>
+              </View>
+              {authStore.user?.avatar && (
+                <Avatar.Image 
+                  size={60} 
+                  source={{ uri: authStore.user.avatar }} 
+                />
               )}
-              <Paragraph>{i18n.t('home.welcomeDescription')}</Paragraph>
-            </View>
-            {authStore.user?.avatar && (
-              <Avatar.Image 
-                size={60} 
-                source={{ uri: authStore.user.avatar }} 
-              />
-            )}
-          </Card.Content>
-        </Card>
+            </Card.Content>
+          </Card>
 
-        {/* Menu items */}
-        <Text variant="titleLarge" style={styles.menuTitle}>
-          {i18n.t('home.menu')}
-        </Text>
+          {/* Menu items */}
+          <Text variant="titleLarge" style={styles.menuTitle}>
+            {i18n.t('home.menu')}
+          </Text>
 
-        <View style={styles.menuContainer}>
-          {menuItems.map((item, index) => (
-            <Card 
-              key={index} 
-              style={styles.menuCard} 
-              onPress={item.onPress}
-            >
-              <Card.Content style={styles.menuCardContent}>
-                <Avatar.Icon size={48} icon={item.icon} style={styles.menuIcon} />
-                <View style={styles.menuTextContainer}>
-                  <Text variant="titleMedium">{item.title}</Text>
-                  <Text variant="bodySmall">{item.description}</Text>
-                </View>
-              </Card.Content>
-            </Card>
-          ))}
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+          <View style={styles.menuContainer}>
+            {menuItems.map((item, index) => (
+              <Card 
+                key={index} 
+                style={styles.menuCard} 
+                onPress={item.onPress}
+              >
+                <Card.Content style={styles.menuCardContent}>
+                  <Avatar.Icon size={48} icon={item.icon} style={styles.menuIcon} />
+                  <View style={styles.menuTextContainer}>
+                    <Text variant="titleMedium">{item.title}</Text>
+                    <Text variant="bodySmall">{item.description}</Text>
+                  </View>
+                </Card.Content>
+              </Card>
+            ))}
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </View>
   );
 });
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   scrollContent: {
     padding: 16,
   },
