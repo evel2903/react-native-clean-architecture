@@ -6,28 +6,43 @@ import PostsScreen from "src/post/presentation/screens/PostsScreen";
 import AuthScreen from "src/auth/presentation/screens/AuthScreen";
 import HomeScreen from "../screens/HomeScreen";
 import { useTheme } from "../theme/ThemeProvider";
+import { observer } from 'mobx-react';
+import { useAuthStore } from "src/auth/presentation/stores/AuthStore/useAuthStore";
+import { withProviders } from "../utils/withProviders";
+import { AuthStoreProvider } from "src/auth/presentation/stores/AuthStore/AuthStoreProvider";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export default function RootNavigator() {
-  const initialRouteName: keyof RootStackParamList = "Auth";
+const RootNavigator = observer(() => {
   const { theme } = useTheme();
-
+  const authStore = useAuthStore();
+  
   return (
-    <Stack.Navigator 
-        initialRouteName={initialRouteName}
-        screenOptions={{
+    <Stack.Navigator
+      screenOptions={{
         headerShown: false,
         contentStyle: {
-            backgroundColor: theme.colors.background,
+          backgroundColor: theme.colors.background,
         }
-        }}
+      }}
     >
-      <Stack.Screen name="Auth" component={AuthScreen} />
+      {/* Include all screens in the navigator, but configure initial route */}
+      <Stack.Screen 
+        name="Auth" 
+        component={AuthScreen} 
+        options={{ 
+          // Prevent going back to Auth screen after login
+          gestureEnabled: false,
+          // Hide back button if shown
+          headerLeft: () => null 
+        }}
+      />
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Posts" component={PostsScreen} />
       <Stack.Screen name="Post" component={PostScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} />
     </Stack.Navigator>
   );
-}
+});
+
+export default withProviders(AuthStoreProvider)(RootNavigator);

@@ -64,7 +64,8 @@ const AuthScreen = observer(() => {
 
         const success = await authStore.login({ username, password });
         if (success) {
-            navigation.navigate('Home');
+            // Use replace instead of navigate to remove Auth screen from history
+            navigation.replace('Home');
         }
     };
 

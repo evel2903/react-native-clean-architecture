@@ -18,9 +18,9 @@ const HomeScreen = observer(() => {
   const i18n = useI18n();
   const authStore = useAuthStore();
 
-  const handleLogout = () => {
-    authStore.logout();
-    navigation.navigate('Auth');
+  const handleLogout = async () => {
+    await authStore.logout();
+    navigation.replace('Auth');
   };
 
   const menuItems = [
