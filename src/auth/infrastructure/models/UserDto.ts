@@ -7,20 +7,26 @@ export default class UserDto extends ResponseDto<UserEntity> {
   id!: string;
 
   @Expose()
-  name!: string;
+  username!: string;
 
   @Expose()
   email!: string;
 
   @Expose()
-  avatar?: string;
+  fullname?: string;
 
-  toDomain() {
+  @Expose()
+  permissions?: string[];
+
+  toDomain(): UserEntity {
     return {
       id: this.id,
-      name: this.name,
+      name: this.fullname || this.username,
       email: this.email,
-      avatar: this.avatar,
+      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(
+        this.fullname || this.username
+      )}&background=random`,
+      permissions: this.permissions || [],
     };
   }
 }

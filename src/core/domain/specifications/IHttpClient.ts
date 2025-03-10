@@ -24,4 +24,9 @@ export default interface IHttpClient {
     url: string,
     config?: AxiosRequestConfig
   ): Promise<ResponseType>;
+  
+  // Add these new methods for token management
+  storeTokens(accessToken: string, refreshToken: string): Promise<void>;
+  
+  clearTokens(): Promise<void>;
 }

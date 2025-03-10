@@ -1,18 +1,28 @@
-import { Expose } from "class-transformer";
+import { Expose, plainToInstance } from "class-transformer";
 import PayloadDto from "src/core/infrastructure/models/PayloadDto";
 import LoginPayload from "../../application/types/LoginPayload";
 
 export default class LoginDto extends PayloadDto<LoginPayload> {
   @Expose()
-  email!: string;
+  username!: string;
 
   @Expose()
   password!: string;
 
   transform(payload: LoginPayload) {
+    // Simply return the payload directly to be assigned to this instance
     return {
-      email: payload.email,
+      username: payload.username,
       password: payload.password,
+    };
+  }
+  
+  // Override the toPlain method to ensure correct property exposure
+  toPlain() {
+    // Direct approach to ensure we get the actual values
+    return {
+      username: this.username,
+      password: this.password
     };
   }
 }

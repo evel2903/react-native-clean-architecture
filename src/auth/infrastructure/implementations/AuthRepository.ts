@@ -1,50 +1,54 @@
-import { injectable } from "inversiland";
+import { injectable, inject } from "inversiland";
 import { IAuthRepository } from "../../domain/specifications/IAuthRepository";
 import LoginPayload from "../../application/types/LoginPayload";
 import UserEntity from "../../domain/entities/UserEntity";
+import IHttpClient, { IHttpClientToken } from "src/core/domain/specifications/IHttpClient";
+import LoginDto from "../models/LoginDto";
+import { plainToInstance } from "class-transformer";
+import UserDto from "../models/UserDto";
 
 @injectable()
 class AuthRepository implements IAuthRepository {
+  private readonly baseUrl = "/api/auth";
+
+  constructor(
+    @inject(IHttpClientToken) private readonly httpClient: IHttpClient
+  ) {}
+
   public async login(credentials: LoginPayload): Promise<UserEntity> {
-    // In a real app, this would be an API call
-    // Simulating network delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // For demo purposes, we'll just accept valid credentials
-    // and create a mock user
-    
-    // Optional: Add mock invalid credentials check
-    if (credentials.email === "invalid@example.com" || credentials.email === "invalid") {
-      throw new Error('Invalid credentials');
+    try {
+      
+      // Make the API request
+      const response: any = await this.httpClient.post(
+        `${this.baseUrl}/login`, 
+        credentials
+      );
+      
+      
+      // Extract user data from the response
+      const userData = response.data.user;
+      
+      // Transform to domain entity using UserDto
+      const userDto = plainToInstance(UserDto, userData);
+      
+      return userDto.toDomain();
+    } catch (error) {
+      console.error('Login error:', error);
+      throw new Error(error instanceof Error ? error.message : 'Login failed');
     }
-    
-    // Generate a display name based on the login method
-    let displayName = "Demo User";
-    let userEmail = credentials.email;
-    
-    // If it's a username, create a fake email
-    if (!credentials.email.includes('@')) {
-      userEmail = `${credentials.email}@example.com`;
-      displayName = credentials.email.charAt(0).toUpperCase() + credentials.email.slice(1);
-    }
-    
-    const mockUser: UserEntity = {
-      id: "1",
-      name: displayName,
-      email: userEmail,
-      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(
-        displayName
-      )}&background=random`
-    };
-    
-    return mockUser;
   }
 
   public async logout(): Promise<void> {
-    // In a real app, this would be an API call to invalidate the token
-    // For now, we'll just simulate a delay
-    await new Promise(resolve => setTimeout(resolve, 500));
-    return;
+    try {
+      // In a real app, you might need to invalidate the token on server side
+      // await this.httpClient.post(`${this.baseUrl}/logout`);
+      
+      // For now, we'll just return as if logout was successful
+      return;
+    } catch (error) {
+      console.error('Logout error:', error);
+      throw new Error(error instanceof Error ? error.message : 'Logout failed');
+    }
   }
 }
 

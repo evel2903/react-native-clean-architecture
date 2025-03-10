@@ -3,4 +3,5 @@ export default interface UserEntity {
     name: string;
     email: string;
     avatar?: string;
+    permissions: string[];
   }
