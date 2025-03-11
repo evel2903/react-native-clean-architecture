@@ -1,11 +1,11 @@
-import { injectable, inject } from "inversiland";
+import { injectable, inject } from 'inversiland'
 import {
   IStockInRepository,
   IStockInRepositoryToken,
-} from "../../domain/specifications/IStockInRepository";
-import CreateStockInPayload from "../types/CreateStockInPayload";
-import { UseCase } from "src/Core/Application/UseCase";
-import StockInEntity from "../../domain/entities/StockInEntity";
+} from '../../Domain/Specifications/IStockInRepository'
+import CreateStockInPayload from '../Types/CreateStockInPayload'
+import { UseCase } from 'src/Core/Application/UseCase'
+import StockInEntity from '../../Domain/Entities/StockInEntity'
 
 @injectable()
 export default class CreateStockInUseCase
@@ -17,6 +17,6 @@ export default class CreateStockInUseCase
   ) {}
 
   public execute(payload: CreateStockInPayload) {
-    return this.stockInRepository.createStockIn(payload);
+    return this.stockInRepository.createStockIn(payload)
   }
 }

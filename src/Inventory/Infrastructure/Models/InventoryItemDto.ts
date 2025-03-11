@@ -1,34 +1,34 @@
-import { Expose } from "class-transformer";
-import ResponseDto from "@/src/Core/Infrastructure/Models/ResponseDto";
-import InventoryItemEntity from "../../Domain/Entities/InventoryItemEntity";
+import { Expose } from 'class-transformer'
+import ResponseDto from '@/src/Core/Infrastructure/Models/ResponseDto'
+import InventoryItemEntity from '../../Domain/Entities/InventoryItemEntity'
 
 export default class InventoryItemDto extends ResponseDto<InventoryItemEntity> {
   @Expose()
-  id!: string;
+  id!: string
 
   @Expose()
-  productId!: string;
+  productId!: string
 
   @Expose()
-  name!: string;
+  name!: string
 
   @Expose()
-  sku!: string;
+  sku!: string
 
   @Expose()
-  category!: string;
+  category!: string
 
   @Expose()
-  quantity!: number;
+  quantity!: number
 
   @Expose()
-  unit!: string;
+  unit!: string
 
   @Expose()
-  reorderLevel!: number;
+  reorderLevel!: number
 
   @Expose()
-  lastUpdated!: string;
+  lastUpdated!: string
 
   toDomain(): InventoryItemEntity {
     return {
@@ -40,7 +40,7 @@ export default class InventoryItemDto extends ResponseDto<InventoryItemEntity> {
       quantity: this.quantity,
       unit: this.unit,
       reorderLevel: this.reorderLevel,
-      lastUpdated: this.lastUpdated
-    };
+      lastUpdated: this.lastUpdated,
+    }
   }
 }

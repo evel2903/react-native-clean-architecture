@@ -1,11 +1,11 @@
 import {
   IPostRepository,
   IPostRepositoryToken,
-} from "src/post/domain/specifications/IPostRepository";
-import GetPostsPayload from "src/post/application/types/GetPostsPayload";
-import { injectable, inject } from "inversiland";
-import { UseCase } from "@/src/Core/Application/UseCase";
-import GetPostsResponse from "../types/GetPostsResponse";
+} from 'src/post/domain/specifications/IPostRepository'
+import GetPostsPayload from 'src/post/application/types/GetPostsPayload'
+import { injectable, inject } from 'inversiland'
+import { UseCase } from '@/src/Core/Application/UseCase'
+import GetPostsResponse from '../types/GetPostsResponse'
 
 @injectable()
 export default class GetPostsUseCase
@@ -17,6 +17,6 @@ export default class GetPostsUseCase
   ) {}
 
   public execute(payload: GetPostsPayload) {
-    return this.postRepository.get(payload);
+    return this.postRepository.get(payload)
   }
 }

@@ -1,16 +1,16 @@
 module.exports = function (api) {
-  api.cache(true);
+  api.cache(true)
   return {
-    presets: ["babel-preset-expo"],
+    presets: ['babel-preset-expo'],
     plugins: [
-      "babel-plugin-transform-typescript-metadata",
+      'babel-plugin-transform-typescript-metadata',
       [
-        "module-resolver",
+        'module-resolver',
         {
-          extensions: [".js", ".jsx", ".ts", ".tsx"],
-          root: ["."],
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+          root: ['.'],
         },
       ],
     ],
-  };
-};
+  }
+}

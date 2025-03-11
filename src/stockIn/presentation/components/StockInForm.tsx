@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { TextInput, Button, Text, HelperText, Menu, Dialog, Portal } from 'react-native-paper';
 import { observer } from 'mobx-react';
-import { useStockInStore } from '../stores/StockInStore/useStockInStore';
-import CreateStockInPayload from '../../application/types/CreateStockInPayload';
+import { useStockInStore } from '../Stores/StockInStore/UseStockInStore';
+import CreateStockInPayload from '../../Application/Types/CreateStockInPayload';
 
 interface StockInFormProps {
   onCancel: () => void;

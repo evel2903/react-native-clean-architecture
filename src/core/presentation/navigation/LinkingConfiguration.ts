@@ -4,23 +4,23 @@
  * https://reactnavigation.org/docs/configuring-links
  */
 
-import { LinkingOptions } from "@react-navigation/native";
-import * as Linking from "expo-linking";
-import { RootStackParamList } from "./Types/Index";
+import { LinkingOptions } from '@react-navigation/native'
+import * as Linking from 'expo-linking'
+import { RootStackParamList } from './Types/Index'
 
 const linking: LinkingOptions<RootStackParamList> = {
-  prefixes: [Linking.createURL("/")],
+  prefixes: [Linking.createURL('/')],
   config: {
     screens: {
-      Auth: "auth",
-      Home: "home",
-      Posts: "posts",
-      Post: "post/:id",
-      Inventory: "inventory",
-      StockIn: "stock-in",
-      NotFound: "*",
+      Auth: 'auth',
+      Home: 'home',
+      Posts: 'posts',
+      Post: 'post/:id',
+      Inventory: 'inventory',
+      StockIn: 'stock-in',
+      NotFound: '*',
     },
   },
-};
+}
 
-export default linking;
+export default linking

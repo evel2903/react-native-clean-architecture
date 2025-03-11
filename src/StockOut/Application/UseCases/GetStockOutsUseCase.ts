@@ -1,15 +1,19 @@
-import { injectable, inject } from "inversiland";
+import { injectable, inject } from 'inversiland'
 import {
   IStockOutRepository,
   IStockOutRepositoryToken,
-} from "../../domain/specifications/IStockOutRepository";
-import GetStockOutsPayload from "../types/GetStockOutsPayload";
-import { UseCase } from "src/Core/Application/UseCase";
-import StockOutEntity from "../../domain/entities/StockOutEntity";
+} from '../../Domain/Specifications/IStockOutRepository'
+import GetStockOutsPayload from '../Types/GetStockOutsPayload'
+import { UseCase } from 'src/Core/Application/UseCase'
+import StockOutEntity from '../../Domain/Entities/StockOutEntity'
 
 @injectable()
 export default class GetStockOutsUseCase
-  implements UseCase<GetStockOutsPayload, Promise<{ results: StockOutEntity[]; count: number }>>
+  implements
+    UseCase<
+      GetStockOutsPayload,
+      Promise<{ results: StockOutEntity[]; count: number }>
+    >
 {
   constructor(
     @inject(IStockOutRepositoryToken)
@@ -17,6 +21,6 @@ export default class GetStockOutsUseCase
   ) {}
 
   public execute(payload: GetStockOutsPayload) {
-    return this.stockOutRepository.getStockOuts(payload);
+    return this.stockOutRepository.getStockOuts(payload)
   }
 }

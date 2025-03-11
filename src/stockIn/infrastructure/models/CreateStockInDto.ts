@@ -1,37 +1,37 @@
-import { Expose } from "class-transformer";
-import PayloadDto from "src/Core/Infrastructure/Models/PayloadDto";
-import CreateStockInPayload from "../../application/types/CreateStockInPayload";
+import { Expose } from 'class-transformer'
+import PayloadDto from 'src/Core/Infrastructure/Models/PayloadDto'
+import CreateStockInPayload from '../../Application/Types/CreateStockInPayload'
 
 export default class CreateStockInDto extends PayloadDto<CreateStockInPayload> {
   @Expose()
-  productId!: string;
+  productId!: string
 
   @Expose()
-  productName!: string;
+  productName!: string
 
   @Expose()
-  quantity!: number;
+  quantity!: number
 
   @Expose()
-  unit!: string;
+  unit!: string
 
   @Expose()
-  date!: string;
+  date!: string
 
   @Expose()
-  receivedBy!: string;
+  receivedBy!: string
 
   @Expose()
-  supplierName?: string;
+  supplierName?: string
 
   @Expose()
-  supplierInvoice?: string;
+  supplierInvoice?: string
 
   @Expose()
-  notes?: string;
+  notes?: string
 
   @Expose()
-  status?: 'pending' | 'completed' | 'cancelled';
+  status?: 'pending' | 'completed' | 'cancelled'
 
   transform(payload: CreateStockInPayload) {
     return {
@@ -44,7 +44,7 @@ export default class CreateStockInDto extends PayloadDto<CreateStockInPayload> {
       supplierName: payload.supplierName,
       supplierInvoice: payload.supplierInvoice,
       notes: payload.notes,
-      status: payload.status || 'pending'
-    };
+      status: payload.status || 'pending',
+    }
   }
 }

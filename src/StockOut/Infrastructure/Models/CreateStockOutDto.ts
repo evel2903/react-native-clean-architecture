@@ -1,37 +1,37 @@
-import { Expose } from "class-transformer";
-import PayloadDto from "src/Core/Infrastructure/Models/PayloadDto";
-import CreateStockOutPayload from "../../application/types/CreateStockOutPayload";
+import { Expose } from 'class-transformer'
+import PayloadDto from 'src/Core/Infrastructure/Models/PayloadDto'
+import CreateStockOutPayload from '../../Application/Types/CreateStockOutPayload'
 
 export default class CreateStockOutDto extends PayloadDto<CreateStockOutPayload> {
   @Expose()
-  productId!: string;
+  productId!: string
 
   @Expose()
-  productName!: string;
+  productName!: string
 
   @Expose()
-  quantity!: number;
+  quantity!: number
 
   @Expose()
-  unit!: string;
+  unit!: string
 
   @Expose()
-  date!: string;
+  date!: string
 
   @Expose()
-  issuedBy!: string;
+  issuedBy!: string
 
   @Expose()
-  issuedTo!: string;
+  issuedTo!: string
 
   @Expose()
-  reason?: string;
+  reason?: string
 
   @Expose()
-  notes?: string;
+  notes?: string
 
   @Expose()
-  status?: 'pending' | 'completed' | 'cancelled';
+  status?: 'pending' | 'completed' | 'cancelled'
 
   transform(payload: CreateStockOutPayload) {
     return {
@@ -44,7 +44,7 @@ export default class CreateStockOutDto extends PayloadDto<CreateStockOutPayload>
       issuedTo: payload.issuedTo,
       reason: payload.reason,
       notes: payload.notes,
-      status: payload.status || 'pending'
-    };
+      status: payload.status || 'pending',
+    }
   }
 }

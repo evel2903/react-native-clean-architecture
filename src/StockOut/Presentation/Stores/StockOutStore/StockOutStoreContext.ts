@@ -1,6 +1,6 @@
-import { createContext } from "react";
-import { StockOutStore } from "./StockOutStore";
+import { createContext } from 'react'
+import { StockOutStore } from './StockOutStore'
 
-export const StockOutStoreContext = createContext<StockOutStore | null>(null);
+export const StockOutStoreContext = createContext<StockOutStore | null>(null)
 
-StockOutStoreContext.displayName = "StockOutStoreContext";
+StockOutStoreContext.displayName = 'StockOutStoreContext'

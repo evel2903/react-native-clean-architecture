@@ -1,9 +1,9 @@
-import { getModuleContainer, module } from "inversiland";
-import { AuthStore } from "./Presentation/Stores/AuthStore/AuthStore";
-import { IAuthRepositoryToken } from "./Domain/Specifications/IAuthRepository";
-import AuthRepository from "./Infrastructure/Implementations/AuthRepository";
-import LoginUseCase from "./Application/UseCases/LoginUseCase";
-import LogoutUseCase from "./Application/UseCases/LogoutUseCase";
+import { getModuleContainer, module } from 'inversiland'
+import { AuthStore } from './Presentation/Stores/AuthStore/AuthStore'
+import { IAuthRepositoryToken } from './Domain/Specifications/IAuthRepository'
+import AuthRepository from './Infrastructure/Implementations/AuthRepository'
+import LoginUseCase from './Application/UseCases/LoginUseCase'
+import LogoutUseCase from './Application/UseCases/LogoutUseCase'
 
 @module({
   providers: [
@@ -15,10 +15,10 @@ import LogoutUseCase from "./Application/UseCases/LogoutUseCase";
     LogoutUseCase,
     {
       useClass: AuthStore,
-      scope: "Transient",
+      scope: 'Transient',
     },
   ],
 })
 export class AuthModule {}
 
-export const authModuleContainer = getModuleContainer(AuthModule);
+export const authModuleContainer = getModuleContainer(AuthModule)

@@ -1,9 +1,9 @@
-import { getModuleContainer, module } from "inversiland";
-import { StockOutStore } from "./presentation/stores/StockOutStore/StockOutStore";
-import { IStockOutRepositoryToken } from "./domain/specifications/IStockOutRepository";
-import StockOutRepository from "./infrastructure/implementations/StockOutRepository";
-import GetStockOutsUseCase from "./application/useCases/GetStockOutsUseCase";
-import CreateStockOutUseCase from "./application/useCases/CreateStockOutUseCase";
+import { getModuleContainer, module } from 'inversiland'
+import { StockOutStore } from './Presentation/Stores/StockOutStore/StockOutStore'
+import { IStockOutRepositoryToken } from './Domain/Specifications/IStockOutRepository'
+import StockOutRepository from './Infrastructure/Implementations/StockOutRepository'
+import GetStockOutsUseCase from './Application/UseCases/GetStockOutsUseCase'
+import CreateStockOutUseCase from './Application/UseCases/CreateStockOutUseCase'
 
 @module({
   providers: [
@@ -15,10 +15,10 @@ import CreateStockOutUseCase from "./application/useCases/CreateStockOutUseCase"
     CreateStockOutUseCase,
     {
       useClass: StockOutStore,
-      scope: "Transient",
+      scope: 'Transient',
     },
   ],
 })
 export class StockOutModule {}
 
-export const stockOutModuleContainer = getModuleContainer(StockOutModule);
+export const stockOutModuleContainer = getModuleContainer(StockOutModule)

@@ -1,8 +1,8 @@
-import { injectable, inject } from "inversiland";
+import { injectable, inject } from 'inversiland'
 import {
   IPostRepository,
   IPostRepositoryToken,
-} from "src/post/domain/specifications/IPostRepository";
+} from 'src/post/domain/specifications/IPostRepository'
 
 @injectable()
 export default class FindPostUseCase {
@@ -12,6 +12,6 @@ export default class FindPostUseCase {
   ) {}
 
   public execute(id: number) {
-    return this.postRepository.find(id);
+    return this.postRepository.find(id)
   }
 }

@@ -1,4 +1,4 @@
 export default interface GetPostsPayload {
-  page: number;
-  pageSize: number;
+  page: number
+  pageSize: number
 }

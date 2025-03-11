@@ -1,10 +1,10 @@
-import { getModuleContainer, module } from "inversiland";
-import { GetPostsStore } from "./presentation/stores/GetPostsStore/GetPostsStore";
-import { FindPostStore } from "./presentation/stores/FindPostStore/FindPostStore";
-import { IPostRepositoryToken } from "./domain/specifications/IPostRepository";
-import PostRepository from "./infrastructure/implementations/PostRepository";
-import FindPostUseCase from "./application/useCases/FindPostUseCase";
-import GetPostsUseCase from "./application/useCases/GetPostsUseCase";
+import { getModuleContainer, module } from 'inversiland'
+import { GetPostsStore } from './presentation/stores/GetPostsStore/GetPostsStore'
+import { FindPostStore } from './presentation/stores/FindPostStore/FindPostStore'
+import { IPostRepositoryToken } from './domain/specifications/IPostRepository'
+import PostRepository from './infrastructure/implementations/PostRepository'
+import FindPostUseCase from './application/useCases/FindPostUseCase'
+import GetPostsUseCase from './application/useCases/GetPostsUseCase'
 
 @module({
   providers: [
@@ -16,14 +16,14 @@ import GetPostsUseCase from "./application/useCases/GetPostsUseCase";
     GetPostsUseCase,
     {
       useClass: GetPostsStore,
-      scope: "Transient",
+      scope: 'Transient',
     },
     {
       useClass: FindPostStore,
-      scope: "Transient",
+      scope: 'Transient',
     },
   ],
 })
 export class PostModule {}
 
-export const postModuleContainer = getModuleContainer(PostModule);
+export const postModuleContainer = getModuleContainer(PostModule)

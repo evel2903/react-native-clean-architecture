@@ -1,22 +1,22 @@
-import { Expose } from "class-transformer";
-import ResponseDto from "@/src/Core/Infrastructure/Models/ResponseDto";
-import UserEntity from "@/src/Auth/Domain/Entities/UserEntity";
+import { Expose } from 'class-transformer'
+import ResponseDto from '@/src/Core/Infrastructure/Models/ResponseDto'
+import UserEntity from '@/src/Auth/Domain/Entities/UserEntity'
 
 export default class UserDto extends ResponseDto<UserEntity> {
   @Expose()
-  id!: string;
+  id!: string
 
   @Expose()
-  username!: string;
+  username!: string
 
   @Expose()
-  email!: string;
+  email!: string
 
   @Expose()
-  fullname?: string;
+  fullname?: string
 
   @Expose()
-  permissions?: string[];
+  permissions?: string[]
 
   toDomain(): UserEntity {
     return {
@@ -27,6 +27,6 @@ export default class UserDto extends ResponseDto<UserEntity> {
         this.fullname || this.username
       )}&background=random`,
       permissions: this.permissions || [],
-    };
+    }
   }
 }

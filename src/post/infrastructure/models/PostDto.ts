@@ -1,19 +1,19 @@
-import { Expose } from "class-transformer";
-import ResponseDto from "@/src/Core/Infrastructure/Models/ResponseDto";
-import PostEntity from "src/post/domain/entities/PostEntity";
+import { Expose } from 'class-transformer'
+import ResponseDto from '@/src/Core/Infrastructure/Models/ResponseDto'
+import PostEntity from 'src/post/domain/entities/PostEntity'
 
 export default class PostDto extends ResponseDto<PostEntity> {
   @Expose()
-  id!: number;
+  id!: number
 
   @Expose()
-  userId!: number;
+  userId!: number
 
   @Expose()
-  title!: string;
+  title!: string
 
   @Expose()
-  body!: string;
+  body!: string
 
   toDomain() {
     return {
@@ -21,6 +21,6 @@ export default class PostDto extends ResponseDto<PostEntity> {
       userId: this.userId,
       title: this.title,
       body: this.body,
-    };
+    }
   }
 }

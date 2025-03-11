@@ -1,32 +1,32 @@
-import { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from 'axios'
 
-export const IHttpClientToken = Symbol("IHttpClient");
+export const IHttpClientToken = Symbol('IHttpClient')
 
 export default interface IHttpClient {
   get<ResponseType>(
     url: string,
     config?: AxiosRequestConfig
-  ): Promise<ResponseType>;
+  ): Promise<ResponseType>
 
   post<DataType, ResponseType>(
     url: string,
     data?: DataType,
     config?: AxiosRequestConfig
-  ): Promise<ResponseType>;
+  ): Promise<ResponseType>
 
   patch<DataType, ResponseType>(
     url: string,
     data?: DataType,
     config?: AxiosRequestConfig
-  ): Promise<ResponseType>;
+  ): Promise<ResponseType>
 
   delete<ResponseType>(
     url: string,
     config?: AxiosRequestConfig
-  ): Promise<ResponseType>;
-  
+  ): Promise<ResponseType>
+
   // Add these new methods for token management
-  storeTokens(accessToken: string, refreshToken: string): Promise<void>;
-  
-  clearTokens(): Promise<void>;
+  storeTokens(accessToken: string, refreshToken: string): Promise<void>
+
+  clearTokens(): Promise<void>
 }

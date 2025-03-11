@@ -1,8 +1,8 @@
-import { getModuleContainer, module } from "inversiland";
-import { GetInventoryStore } from "./Presentation/Stores/GetInventoryStore/GetInventoryStore";
-import { IInventoryRepositoryToken } from "./Domain/Specifications/IInventoryRepository";
-import InventoryRepository from "./Infrastructure/Implementations/InventoryRepository";
-import GetInventoryUseCase from "./Application/UseCases/GetInventoryUseCase";
+import { getModuleContainer, module } from 'inversiland'
+import { GetInventoryStore } from './Presentation/Stores/GetInventoryStore/GetInventoryStore'
+import { IInventoryRepositoryToken } from './Domain/Specifications/IInventoryRepository'
+import InventoryRepository from './Infrastructure/Implementations/InventoryRepository'
+import GetInventoryUseCase from './Application/UseCases/GetInventoryUseCase'
 
 @module({
   providers: [
@@ -13,10 +13,10 @@ import GetInventoryUseCase from "./Application/UseCases/GetInventoryUseCase";
     GetInventoryUseCase,
     {
       useClass: GetInventoryStore,
-      scope: "Transient",
+      scope: 'Transient',
     },
   ],
 })
 export class InventoryModule {}
 
-export const inventoryModuleContainer = getModuleContainer(InventoryModule);
+export const inventoryModuleContainer = getModuleContainer(InventoryModule)

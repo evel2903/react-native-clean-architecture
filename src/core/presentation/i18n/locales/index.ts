@@ -1,9 +1,9 @@
-import en from "./En";
-import vi from "./Vi";
+import en from './En'
+import vi from './Vi'
 
 const locales = {
   en,
   vi,
-};
+}
 
-export default locales;
+export default locales

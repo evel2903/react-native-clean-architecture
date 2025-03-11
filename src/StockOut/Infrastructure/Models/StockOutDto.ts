@@ -1,40 +1,40 @@
-import { Expose } from "class-transformer";
-import ResponseDto from "src/Core/Infrastructure/Models/ResponseDto";
-import StockOutEntity from "../../domain/entities/StockOutEntity";
+import { Expose } from 'class-transformer'
+import ResponseDto from 'src/Core/Infrastructure/Models/ResponseDto'
+import StockOutEntity from '../../Domain/Entities/StockOutEntity'
 
 export default class StockOutDto extends ResponseDto<StockOutEntity> {
   @Expose()
-  id!: string;
+  id!: string
 
   @Expose()
-  productId!: string;
+  productId!: string
 
   @Expose()
-  productName!: string;
+  productName!: string
 
   @Expose()
-  quantity!: number;
+  quantity!: number
 
   @Expose()
-  unit!: string;
+  unit!: string
 
   @Expose()
-  date!: string;
+  date!: string
 
   @Expose()
-  issuedBy!: string;
+  issuedBy!: string
 
   @Expose()
-  issuedTo!: string;
+  issuedTo!: string
 
   @Expose()
-  reason?: string;
+  reason?: string
 
   @Expose()
-  notes?: string;
+  notes?: string
 
   @Expose()
-  status!: 'pending' | 'completed' | 'cancelled';
+  status!: 'pending' | 'completed' | 'cancelled'
 
   toDomain(): StockOutEntity {
     return {
@@ -48,7 +48,7 @@ export default class StockOutDto extends ResponseDto<StockOutEntity> {
       issuedTo: this.issuedTo,
       reason: this.reason,
       notes: this.notes,
-      status: this.status
-    };
+      status: this.status,
+    }
   }
 }

@@ -1,9 +1,9 @@
-import { injectable, inject } from "inversiland";
+import { injectable, inject } from 'inversiland'
 import {
   IAuthRepository,
   IAuthRepositoryToken,
-} from "../../Domain/Specifications/IAuthRepository";
-import { UseCase } from "@/src/Core/Application/UseCase";
+} from '../../Domain/Specifications/IAuthRepository'
+import { UseCase } from '@/src/Core/Application/UseCase'
 
 @injectable()
 export default class LogoutUseCase implements UseCase<void, Promise<void>> {
@@ -13,6 +13,6 @@ export default class LogoutUseCase implements UseCase<void, Promise<void>> {
   ) {}
 
   public execute() {
-    return this.authRepository.logout();
+    return this.authRepository.logout()
   }
 }

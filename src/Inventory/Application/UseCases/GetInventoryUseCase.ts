@@ -1,11 +1,11 @@
-import { injectable, inject } from "inversiland";
+import { injectable, inject } from 'inversiland'
 import {
   IInventoryRepository,
   IInventoryRepositoryToken,
-} from "../../Domain/Specifications/IInventoryRepository";
-import GetInventoryPayload from "../Types/GetInventoryPayload";
-import { UseCase } from "@/src/Core/Application/UseCase";
-import GetInventoryResponse from "../Types/GetInventoryResponse";
+} from '../../Domain/Specifications/IInventoryRepository'
+import GetInventoryPayload from '../Types/GetInventoryPayload'
+import { UseCase } from '@/src/Core/Application/UseCase'
+import GetInventoryResponse from '../Types/GetInventoryResponse'
 
 @injectable()
 export default class GetInventoryUseCase
@@ -17,6 +17,6 @@ export default class GetInventoryUseCase
   ) {}
 
   public execute(payload: GetInventoryPayload) {
-    return this.inventoryRepository.getInventory(payload);
+    return this.inventoryRepository.getInventory(payload)
   }
 }

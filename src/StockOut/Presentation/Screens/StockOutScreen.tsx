@@ -5,14 +5,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { RootScreenNavigationProp } from 'src/Core/Presentation/Navigation/Types/Index';
 import { observer } from 'mobx-react';
-import { useStockOutStore } from '../stores/StockOutStore/useStockOutStore';
+import { useStockOutStore } from '../Stores/StockOutStore/UseStockOutStore';
 import { withProviders } from 'src/Core/Presentation/Utils/WithProviders';
-import { StockOutStoreProvider } from '../stores/StockOutStore/StockOutStoreProvider';
+import { StockOutStoreProvider } from '../Stores/StockOutStore/StockOutStoreProvider';
 import { useI18n } from 'src/Core/Presentation/Hooks/UseI18n';
 import { useTheme } from 'src/Core/Presentation/Theme/ThemeProvider';
-import StockOutForm from '../components/StockOutForm';
+import StockOutForm from '../Components/StockOutForm';
 import { StatusBar } from 'expo-status-bar';
-import StockOutEntity from '../../domain/entities/StockOutEntity';
+import StockOutEntity from '../../Domain/Entities/StockOutEntity';
 
 const StockOutScreen = observer(() => {
   const navigation = useNavigation<RootScreenNavigationProp<'StockOut'>>();

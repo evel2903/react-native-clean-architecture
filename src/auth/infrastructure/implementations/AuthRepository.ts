@@ -1,15 +1,17 @@
-import { injectable, inject } from "inversiland";
-import { IAuthRepository } from "../../Domain/Specifications/IAuthRepository";
-import LoginPayload from "../../Application/Types/LoginPayload";
-import UserEntity from "../../Domain/Entities/UserEntity";
-import IHttpClient, { IHttpClientToken } from "@/src/Core/Domain/Specifications/IHttpClient";
-import LoginDto from "../Models/LoginDto";
-import { plainToInstance } from "class-transformer";
-import UserDto from "../Models/UserDto";
+import { injectable, inject } from 'inversiland'
+import { IAuthRepository } from '../../Domain/Specifications/IAuthRepository'
+import LoginPayload from '../../Application/Types/LoginPayload'
+import UserEntity from '../../Domain/Entities/UserEntity'
+import IHttpClient, {
+  IHttpClientToken,
+} from '@/src/Core/Domain/Specifications/IHttpClient'
+import LoginDto from '../Models/LoginDto'
+import { plainToInstance } from 'class-transformer'
+import UserDto from '../Models/UserDto'
 
 @injectable()
 class AuthRepository implements IAuthRepository {
-  private readonly baseUrl = "/api/auth";
+  private readonly baseUrl = '/api/auth'
 
   constructor(
     @inject(IHttpClientToken) private readonly httpClient: IHttpClient
@@ -17,24 +19,22 @@ class AuthRepository implements IAuthRepository {
 
   public async login(credentials: LoginPayload): Promise<UserEntity> {
     try {
-      
       // Make the API request
       const response: any = await this.httpClient.post(
-        `${this.baseUrl}/login`, 
+        `${this.baseUrl}/login`,
         credentials
-      );
-      
-      
+      )
+
       // Extract user data from the response
-      const userData = response.data.user;
-      
+      const userData = response.data.user
+
       // Transform to domain entity using UserDto
-      const userDto = plainToInstance(UserDto, userData);
-      
-      return userDto.toDomain();
+      const userDto = plainToInstance(UserDto, userData)
+
+      return userDto.toDomain()
     } catch (error) {
-      console.error('Login error:', error);
-      throw new Error(error instanceof Error ? error.message : 'Login failed');
+      console.error('Login error:', error)
+      throw new Error(error instanceof Error ? error.message : 'Login failed')
     }
   }
 
@@ -42,14 +42,14 @@ class AuthRepository implements IAuthRepository {
     try {
       // In a real app, you might need to invalidate the token on server side
       // await this.httpClient.post(`${this.baseUrl}/logout`);
-      
+
       // For now, we'll just return as if logout was successful
-      return;
+      return
     } catch (error) {
-      console.error('Logout error:', error);
-      throw new Error(error instanceof Error ? error.message : 'Logout failed');
+      console.error('Logout error:', error)
+      throw new Error(error instanceof Error ? error.message : 'Logout failed')
     }
   }
 }
 
-export default AuthRepository;
+export default AuthRepository

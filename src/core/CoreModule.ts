@@ -1,8 +1,8 @@
-import { getModuleContainer, module } from "inversiland";
-import I18n from "./Presentation/I18n/Index";
-import HttpClient from "./Infrastructure/Implementations/HttpClient";
-import { IHttpClientToken } from "./Domain/Specifications/IHttpClient";
-import Env, { EnvToken } from "./Domain/Entities/Env";
+import { getModuleContainer, module } from 'inversiland'
+import I18n from './Presentation/I18n/Index'
+import HttpClient from './Infrastructure/Implementations/HttpClient'
+import { IHttpClientToken } from './Domain/Specifications/IHttpClient'
+import Env, { EnvToken } from './Domain/Entities/Env'
 
 @module({
   providers: [
@@ -23,4 +23,4 @@ import Env, { EnvToken } from "./Domain/Entities/Env";
 })
 export class CoreModule {}
 
-export const coreModuleContainer = getModuleContainer(CoreModule);
+export const coreModuleContainer = getModuleContainer(CoreModule)

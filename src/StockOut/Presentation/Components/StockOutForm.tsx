@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { TextInput, Button, Text, HelperText, Menu, Dialog, Portal } from 'react-native-paper';
 import { observer } from 'mobx-react';
-import { useStockOutStore } from '../stores/StockOutStore/useStockOutStore';
-import CreateStockOutPayload from '../../application/types/CreateStockOutPayload';
+import { useStockOutStore } from '../Stores/StockOutStore/UseStockOutStore';
+import CreateStockOutPayload from '../../Application/Types/CreateStockOutPayload';
 
 interface StockOutFormProps {
   onCancel: () => void;
