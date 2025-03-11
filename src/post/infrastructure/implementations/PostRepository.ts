@@ -5,33 +5,35 @@ import GetPostsResponse from 'src/post/application/types/GetPostsResponse'
 import PostDto from '../models/PostDto'
 import { plainToInstance } from 'class-transformer'
 import IHttpClient, {
-  IHttpClientToken,
+    IHttpClientToken,
 } from '@/src/Core/Domain/Specifications/IHttpClient'
 
 @injectable()
 class PostRepository implements IPostRepository {
-  private readonly baseUrl = '/posts'
+    private readonly baseUrl = '/posts'
 
-  constructor(
-    @inject(IHttpClientToken) private readonly httpClient: IHttpClient
-  ) {}
+    constructor(
+        @inject(IHttpClientToken) private readonly httpClient: IHttpClient
+    ) {}
 
-  public async find(id: number) {
-    const response = await this.httpClient.get(`${this.baseUrl}/${id}`)
-    const responseDto = plainToInstance(PostDto, response)
+    public async find(id: number) {
+        const response = await this.httpClient.get(`${this.baseUrl}/${id}`)
+        const responseDto = plainToInstance(PostDto, response)
 
-    return responseDto.toDomain()
-  }
-
-  public async get({}: GetPostsPayload): Promise<GetPostsResponse> {
-    const posts = await this.httpClient.get<unknown[]>(this.baseUrl)
-    const response: GetPostsResponse = {
-      results: posts.map(post => plainToInstance(PostDto, post).toDomain()),
-      count: posts.length,
+        return responseDto.toDomain()
     }
 
-    return response
-  }
+    public async get({}: GetPostsPayload): Promise<GetPostsResponse> {
+        const posts = await this.httpClient.get<unknown[]>(this.baseUrl)
+        const response: GetPostsResponse = {
+            results: posts.map(post =>
+                plainToInstance(PostDto, post).toDomain()
+            ),
+            count: posts.length,
+        }
+
+        return response
+    }
 }
 
 export default PostRepository

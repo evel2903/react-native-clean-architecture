@@ -5,6 +5,6 @@ import GetInventoryResponse from '../../Application/Types/GetInventoryResponse'
 export const IInventoryRepositoryToken = Symbol('IInventoryRepository')
 
 export interface IInventoryRepository {
-  getInventory: (data: GetInventoryPayload) => Promise<GetInventoryResponse>
-  getItemById: (id: string) => Promise<InventoryItemEntity>
+    getInventory: (data: GetInventoryPayload) => Promise<GetInventoryResponse>
+    getItemById: (id: string) => Promise<InventoryItemEntity>
 }

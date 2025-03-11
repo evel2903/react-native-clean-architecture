@@ -3,7 +3,7 @@ import { AuthStore } from './AuthStore'
 import { AuthStoreContext } from './AuthStoreContext'
 
 export const useAuthStore = (): AuthStore => {
-  const store = useContextStore(AuthStoreContext)
+    const store = useContextStore(AuthStoreContext)
 
-  return store
+    return store
 }

@@ -5,17 +5,17 @@ import CreateStockInPayload from '../../Application/Types/CreateStockInPayload'
 export const IStockInRepositoryToken = Symbol('IStockInRepository')
 
 export interface IStockInRepository {
-  getStockIns: (data: GetStockInsPayload) => Promise<{
-    results: StockInEntity[]
-    count: number
-  }>
+    getStockIns: (data: GetStockInsPayload) => Promise<{
+        results: StockInEntity[]
+        count: number
+    }>
 
-  getStockInById: (id: string) => Promise<StockInEntity>
+    getStockInById: (id: string) => Promise<StockInEntity>
 
-  createStockIn: (data: CreateStockInPayload) => Promise<StockInEntity>
+    createStockIn: (data: CreateStockInPayload) => Promise<StockInEntity>
 
-  updateStockInStatus: (
-    id: string,
-    status: StockInEntity['status']
-  ) => Promise<StockInEntity>
+    updateStockInStatus: (
+        id: string,
+        status: StockInEntity['status']
+    ) => Promise<StockInEntity>
 }

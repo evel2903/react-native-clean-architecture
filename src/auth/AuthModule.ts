@@ -6,18 +6,18 @@ import LoginUseCase from './Application/UseCases/LoginUseCase'
 import LogoutUseCase from './Application/UseCases/LogoutUseCase'
 
 @module({
-  providers: [
-    {
-      provide: IAuthRepositoryToken,
-      useClass: AuthRepository,
-    },
-    LoginUseCase,
-    LogoutUseCase,
-    {
-      useClass: AuthStore,
-      scope: 'Transient',
-    },
-  ],
+    providers: [
+        {
+            provide: IAuthRepositoryToken,
+            useClass: AuthRepository,
+        },
+        LoginUseCase,
+        LogoutUseCase,
+        {
+            useClass: AuthStore,
+            scope: 'Transient',
+        },
+    ],
 })
 export class AuthModule {}
 

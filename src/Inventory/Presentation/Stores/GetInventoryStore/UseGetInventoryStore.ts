@@ -3,7 +3,7 @@ import { GetInventoryStore } from './GetInventoryStore'
 import { GetInventoryStoreContext } from './GetInventoryStoreContext'
 
 export const useGetInventoryStore = (): GetInventoryStore => {
-  const store = useContextStore(GetInventoryStoreContext)
+    const store = useContextStore(GetInventoryStoreContext)
 
-  return store
+    return store
 }

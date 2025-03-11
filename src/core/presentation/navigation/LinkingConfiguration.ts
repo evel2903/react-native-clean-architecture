@@ -9,18 +9,18 @@ import * as Linking from 'expo-linking'
 import { RootStackParamList } from './Types/Index'
 
 const linking: LinkingOptions<RootStackParamList> = {
-  prefixes: [Linking.createURL('/')],
-  config: {
-    screens: {
-      Auth: 'auth',
-      Home: 'home',
-      Posts: 'posts',
-      Post: 'post/:id',
-      Inventory: 'inventory',
-      StockIn: 'stock-in',
-      NotFound: '*',
+    prefixes: [Linking.createURL('/')],
+    config: {
+        screens: {
+            Auth: 'auth',
+            Home: 'home',
+            Posts: 'posts',
+            Post: 'post/:id',
+            Inventory: 'inventory',
+            StockIn: 'stock-in',
+            NotFound: '*',
+        },
     },
-  },
 }
 
 export default linking

@@ -3,24 +3,24 @@ import ResponseDto from '@/src/Core/Infrastructure/Models/ResponseDto'
 import PostEntity from 'src/post/domain/entities/PostEntity'
 
 export default class PostDto extends ResponseDto<PostEntity> {
-  @Expose()
-  id!: number
+    @Expose()
+    id!: number
 
-  @Expose()
-  userId!: number
+    @Expose()
+    userId!: number
 
-  @Expose()
-  title!: string
+    @Expose()
+    title!: string
 
-  @Expose()
-  body!: string
+    @Expose()
+    body!: string
 
-  toDomain() {
-    return {
-      id: this.id,
-      userId: this.userId,
-      title: this.title,
-      body: this.body,
+    toDomain() {
+        return {
+            id: this.id,
+            userId: this.userId,
+            title: this.title,
+            body: this.body,
+        }
     }
-  }
 }

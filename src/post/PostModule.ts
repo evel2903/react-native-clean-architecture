@@ -7,22 +7,22 @@ import FindPostUseCase from './application/useCases/FindPostUseCase'
 import GetPostsUseCase from './application/useCases/GetPostsUseCase'
 
 @module({
-  providers: [
-    {
-      provide: IPostRepositoryToken,
-      useClass: PostRepository,
-    },
-    FindPostUseCase,
-    GetPostsUseCase,
-    {
-      useClass: GetPostsStore,
-      scope: 'Transient',
-    },
-    {
-      useClass: FindPostStore,
-      scope: 'Transient',
-    },
-  ],
+    providers: [
+        {
+            provide: IPostRepositoryToken,
+            useClass: PostRepository,
+        },
+        FindPostUseCase,
+        GetPostsUseCase,
+        {
+            useClass: GetPostsStore,
+            scope: 'Transient',
+        },
+        {
+            useClass: FindPostStore,
+            scope: 'Transient',
+        },
+    ],
 })
 export class PostModule {}
 

@@ -5,17 +5,17 @@ import InventoryRepository from './Infrastructure/Implementations/InventoryRepos
 import GetInventoryUseCase from './Application/UseCases/GetInventoryUseCase'
 
 @module({
-  providers: [
-    {
-      provide: IInventoryRepositoryToken,
-      useClass: InventoryRepository,
-    },
-    GetInventoryUseCase,
-    {
-      useClass: GetInventoryStore,
-      scope: 'Transient',
-    },
-  ],
+    providers: [
+        {
+            provide: IInventoryRepositoryToken,
+            useClass: InventoryRepository,
+        },
+        GetInventoryUseCase,
+        {
+            useClass: GetInventoryStore,
+            scope: 'Transient',
+        },
+    ],
 })
 export class InventoryModule {}
 

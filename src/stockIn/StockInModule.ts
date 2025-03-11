@@ -6,18 +6,18 @@ import GetStockInsUseCase from './Application/UseCases/GetStockInsUseCase'
 import CreateStockInUseCase from './Application/UseCases/CreateStockInUseCase'
 
 @module({
-  providers: [
-    {
-      provide: IStockInRepositoryToken,
-      useClass: StockInRepository,
-    },
-    GetStockInsUseCase,
-    CreateStockInUseCase,
-    {
-      useClass: StockInStore,
-      scope: 'Transient',
-    },
-  ],
+    providers: [
+        {
+            provide: IStockInRepositoryToken,
+            useClass: StockInRepository,
+        },
+        GetStockInsUseCase,
+        CreateStockInUseCase,
+        {
+            useClass: StockInStore,
+            scope: 'Transient',
+        },
+    ],
 })
 export class StockInModule {}
 

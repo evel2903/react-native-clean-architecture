@@ -5,6 +5,6 @@ import GetPostsResponse from 'src/post/application/types/GetPostsResponse'
 export const IPostRepositoryToken = Symbol('IPostRepository')
 
 export interface IPostRepository {
-  find: (id: number) => Promise<PostEntity>
-  get: (data: GetPostsPayload) => Promise<GetPostsResponse>
+    find: (id: number) => Promise<PostEntity>
+    get: (data: GetPostsPayload) => Promise<GetPostsResponse>
 }

@@ -7,13 +7,13 @@ import { StockInModule } from './StockIn/StockInModule'
 import { StockOutModule } from './StockOut/StockOutModule'
 
 @module({
-  imports: [
-    CoreModule,
-    PostModule,
-    AuthModule,
-    InventoryModule,
-    StockInModule,
-    StockOutModule,
-  ],
+    imports: [
+        CoreModule,
+        PostModule,
+        AuthModule,
+        InventoryModule,
+        StockInModule,
+        StockOutModule,
+    ],
 })
 export default class AppModule {}

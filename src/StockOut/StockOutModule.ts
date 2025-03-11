@@ -6,18 +6,18 @@ import GetStockOutsUseCase from './Application/UseCases/GetStockOutsUseCase'
 import CreateStockOutUseCase from './Application/UseCases/CreateStockOutUseCase'
 
 @module({
-  providers: [
-    {
-      provide: IStockOutRepositoryToken,
-      useClass: StockOutRepository,
-    },
-    GetStockOutsUseCase,
-    CreateStockOutUseCase,
-    {
-      useClass: StockOutStore,
-      scope: 'Transient',
-    },
-  ],
+    providers: [
+        {
+            provide: IStockOutRepositoryToken,
+            useClass: StockOutRepository,
+        },
+        GetStockOutsUseCase,
+        CreateStockOutUseCase,
+        {
+            useClass: StockOutStore,
+            scope: 'Transient',
+        },
+    ],
 })
 export class StockOutModule {}
 

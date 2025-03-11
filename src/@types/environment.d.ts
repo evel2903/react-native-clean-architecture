@@ -1,9 +1,9 @@
 declare global {
-  namespace NodeJS {
-    interface ProcessEnv {
-      EXPO_PUBLIC_API_URL: string
+    namespace NodeJS {
+        interface ProcessEnv {
+            EXPO_PUBLIC_API_URL: string
+        }
     }
-  }
 }
 
 // If this file has no import/export statements (i.e. is a script)
