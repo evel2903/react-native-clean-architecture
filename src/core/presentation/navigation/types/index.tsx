@@ -18,6 +18,7 @@ import {
     Post: { id: number };
     Inventory: undefined;
     StockIn: undefined;
+    StockOut: undefined;
     NotFound: undefined;
   };
   

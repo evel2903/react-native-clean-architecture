@@ -40,7 +40,7 @@ const HomeScreen = observer(() => {
             title: i18n.t('home.menuItems.stockOut'),
             icon: 'arrow-expand',
             description: i18n.t('home.menuItems.stockOutDescription'),
-            onPress: () => navigation.navigate('NotFound')
+            onPress: () => navigation.navigate('StockOut')
         },
         {
             title: i18n.t('home.menuItems.inventory'),
