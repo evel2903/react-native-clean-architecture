@@ -34,7 +34,7 @@ const HomeScreen = observer(() => {
             title: i18n.t('home.menuItems.stockIn'),
             icon: 'arrow-collapse',
             description: i18n.t('home.menuItems.stockInDescription'),
-            onPress: () => navigation.navigate('NotFound')
+            onPress: () => navigation.navigate('StockIn')
         },
         {
             title: i18n.t('home.menuItems.stockOut'),

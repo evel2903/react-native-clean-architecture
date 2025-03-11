@@ -6,9 +6,9 @@ import PostsScreen from "src/post/presentation/screens/PostsScreen";
 import AuthScreen from "@/src/Auth/Presentation/Screens/AuthScreen";
 import HomeScreen from "../Screens/HomeScreen";
 import InventoryScreen from "@/src/Inventory/Presentation/Screens/InventoryScreen";
+import StockInScreen from "src/stockIn/presentation/screens/StockInScreen";
 import { useTheme } from "../Theme/ThemeProvider";
 import { observer } from 'mobx-react';
-import { useAuthStore } from "@/src/Auth/Presentation/Stores/AuthStore/UseAuthStore";
 import { withProviders } from "../Utils/WithProviders";
 import { AuthStoreProvider } from "@/src/Auth/Presentation/Stores/AuthStore/AuthStoreProvider";
 
@@ -16,7 +16,6 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = observer(() => {
   const { theme } = useTheme();
-  const authStore = useAuthStore();
   
   return (
     <Stack.Navigator
@@ -42,6 +41,7 @@ const RootNavigator = observer(() => {
       <Stack.Screen name="Posts" component={PostsScreen} />
       <Stack.Screen name="Post" component={PostScreen} />
       <Stack.Screen name="Inventory" component={InventoryScreen} />
+      <Stack.Screen name="StockIn" component={StockInScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} />
     </Stack.Navigator>
   );
